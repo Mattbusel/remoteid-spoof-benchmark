@@ -1,0 +1,49 @@
+{
+  "detector": "remoteid-sentinel",
+  "detector_version": "0.1.0",
+  "notes": "Receive-only flood and spoof analyzer. Baseline run over the published corpus; alarm = a definitive Flooded verdict (the soft Elevated watch state is not scored as a flood call); named_real = the track the sentinel ranks as most likely the one genuine drone.",
+  "results": {
+    "clean_baseline": {
+      "alarm": false,
+      "confidence": 0.5,
+      "flood_level": "elevated",
+      "named_real": null,
+      "tracks": 6
+    },
+    "cloned_id": {
+      "alarm": true,
+      "confidence": 1.0,
+      "flood_level": "flooded",
+      "named_real": "02:00:00:00:77:77",
+      "tracks": 41
+    },
+    "colocated": {
+      "alarm": true,
+      "confidence": 1.0,
+      "flood_level": "flooded",
+      "named_real": null,
+      "tracks": 12
+    },
+    "count_spike": {
+      "alarm": true,
+      "confidence": 1.0,
+      "flood_level": "flooded",
+      "named_real": null,
+      "tracks": 60
+    },
+    "single_spoof": {
+      "alarm": true,
+      "confidence": 1.0,
+      "flood_level": "flooded",
+      "named_real": null,
+      "tracks": 2
+    },
+    "templated_flood": {
+      "alarm": true,
+      "confidence": 1.0,
+      "flood_level": "flooded",
+      "named_real": "02:00:00:00:77:77",
+      "tracks": 2
+    }
+  }
+}

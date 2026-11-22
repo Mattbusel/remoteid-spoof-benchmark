@@ -1,0 +1,28 @@
+name: benchmark
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: Build
+        run: cargo build --release
+      - name: Regenerate corpus and run the sentinel baseline
+        run: |
+          cargo run --release --bin generate-corpus
+          cargo run --release --bin baseline-sentinel
+      - name: Score the baseline (must PASS)
+        run: python3 score.py submissions/sentinel-baseline.json
+      - name: Score every submitted detector
+        run: |
+          for f in submissions/*.json; do
+            echo "== $f =="
+            python3 score.py "$f"
+          done

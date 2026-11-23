@@ -3,6 +3,10 @@
 **Most Remote ID receivers believe every broadcast. This is the test corpus
 that proves whether yours does. Pass it, or you shipped a nightlight.**
 
+## Watch: 45 seconds, what this actually does
+
+[![Watch the film](docs/film-poster.png)](https://mattbusel.github.io/drone-demos/watch.html)
+
 A drone's Remote ID beacon is an unauthenticated, unencrypted broadcast that
 anyone can replay, clone or flood. A receiver that simply decodes and trusts
 every frame will happily draw you five hundred drones that are not there, and
